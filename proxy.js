@@ -1,6 +1,9 @@
-// простой WS-прокси с демо-данными
-const WebSocket = require("ws");
-const wss = new WebSocket.Server({ port: 8080, path: "/stream" });
+import WebSocket from "ws";
+
+const port = process.env.PORT || 10000;
+const path = "/stream";
+
+const wss = new WebSocket.Server({ port, path });
 
 wss.on("connection", (ws) => {
   console.log("client connected");
@@ -13,8 +16,7 @@ wss.on("connection", (ws) => {
     };
     ws.send(JSON.stringify(msg));
   }, 2000);
-
   ws.on("close", () => clearInterval(timer));
 });
 
-console.log("WS proxy at ws://localhost:8080/stream");
+console.log(`WS proxy listening on ${port}${path}`);
