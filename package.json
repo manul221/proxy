@@ -1,0 +1,16 @@
+{
+  "name": "progress",
+  "version": "1.0.0",
+  "description": "Статическая страница с встроенным iframe Lucky Jet и панелью предсказаний. Вероятность считается на клиенте по данным, которые должен отдавать ваш прокси (WebSocket). Без прокси включается демо-поток для визуализации UI.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}
