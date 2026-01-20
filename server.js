@@ -1,9 +1,9 @@
-import WebSocket from "ws";
+import { WebSocketServer } from "ws";
 
 const port = process.env.PORT || 10000;
 const path = "/stream";
 
-const wss = new WebSocket.Server({ port, path });
+const wss = new WebSocketServer({ port, path });
 
 wss.on("connection", (ws) => {
   console.log("client connected");
@@ -16,6 +16,7 @@ wss.on("connection", (ws) => {
     };
     ws.send(JSON.stringify(msg));
   }, 2000);
+
   ws.on("close", () => clearInterval(timer));
 });
 
